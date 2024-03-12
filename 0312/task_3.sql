@@ -83,3 +83,20 @@ from deliveries
 left join deliveries_to_couriers on deliveries.id = deliveries_to_couriers.delivery_id
 left join couriers on couriers.id = deliveries_to_couriers.courier_id
 group by deliveries.id;
+
+select
+	couriers.id,
+	first_name,
+	last_name,
+	couriers.phone,
+	vehicle,
+	volume,
+	coalesce(jsonb_agg(jsonb_build_object(
+		'id', deliveries.id,
+		'name', deliveries.name,
+		'phone', deliveries.phone))
+			filter (where deliveries.id is not null), '[]') as deliveries
+from couriers
+left join deliveries_to_couriers on couriers.id = deliveries_to_couriers.courier_id
+left join deliveries on deliveries.id = deliveries_to_couriers.delivery_id
+group by couriers.id;

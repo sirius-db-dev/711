@@ -77,3 +77,17 @@ from repositories
 left join repositories_to_developers on repositories.id = repositories_to_developers.repository_id
 left join developers on developers.id = repositories_to_developers.developer_id
 group by repositories.id;
+
+select
+	developers.id,
+	nickname,
+	coalesce(jsonb_agg(jsonb_build_object(
+		'id', repositories.id,
+		'name', repositories.name,
+		'description', repositories.description,
+		'star_quantity', repositories.star_quantity))
+			filter (where repositories.id is not null), '[]') as repositories
+from developers
+left join repositories_to_developers on developers.id = repositories_to_developers.developer_id
+left join repositories on repositories.id = repositories_to_developers.repository_id
+group by developers.id;

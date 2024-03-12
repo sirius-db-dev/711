@@ -79,3 +79,18 @@ from courses
 left join courses_to_students on courses.id = courses_to_students.course_id
 left join students on students.id = courses_to_students.student_id
 group by courses.id;
+
+select
+	students.id,
+	first_name,
+	last_name,
+	admission_year,
+	coalesce(jsonb_agg(jsonb_build_object(
+		'id', courses.id,
+		'name', courses.name,
+		'description', courses.description))
+			filter (where courses.id is not null), '[]') as courses
+from students
+left join courses_to_students on students.id = courses_to_students.student_id
+left join courses on courses.id = courses_to_students.course_id
+group by students.id;
