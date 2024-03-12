@@ -33,17 +33,19 @@ create table repositories_to_developers
 );
 
 insert into repositories(name, description, star_quantity)
-values ('damn-house', 'horror', 5),
-       ('super-duper-mega-extra-doctor', 'some super-duper-mega-extra text', 5),
-       ('math-functions', 'math functions', 3),
-       ('http-server-on-python', 'my http server', 4),
-       ('no-name', 'no-text', 1);
+values
+('damn-house', 'horror', 5),
+('super-duper-mega-extra-doctor', 'some super-duper-mega-extra text', 5),
+('math-functions', 'math functions', 3),
+('http-server-on-python', 'my http server', 4),
+('no-name', 'no-text', 1);
 
 insert into developers(nickname)
-values ('mixa777'),
-       ('darvenommm'),
-       ('ilya-danilov'),
-       ('some_cool_dev');
+values
+('mixa777'),
+('darvenommm'),
+('ilya-danilov'),
+('some_cool_dev');
 
 insert into repositories_to_developers(repository_id, developer_id)
 values

@@ -34,17 +34,19 @@ create table courses_to_students
 );
 
 insert into courses(name, description)
-values ('Python', 'learn python'),
-       ('super-duper-mega-extra-course', 'some super-duper-mega-extra text'),
-       ('Kotlin', 'mobile developing'),
-       ('C++', 'lets start solve tasks'),
-       ('no-name', 'no-text');
+values
+('Python', 'learn python'),
+('super-duper-mega-extra-course', 'some super-duper-mega-extra text'),
+('Kotlin', 'mobile developing'),
+('C++', 'lets start solve tasks'),
+('no-name', 'no-text');
 
 insert into students(first_name, last_name, admission_year)
-values ('Илья', 'Данилов', 2023),
-       ('Денис', 'Ромоданов', 2023),
-       ('Михаил', 'Тарасов', 2023),
-       ('no_name', 'no_name', 0);
+values
+('Илья', 'Данилов', 2023),
+('Денис', 'Ромоданов', 2023),
+('Михаил', 'Тарасов', 2023),
+('no_name', 'no_name', 0);
 
 insert into courses_to_students(course_id, student_id)
 values
