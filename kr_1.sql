@@ -1,0 +1,30 @@
+---1
+--select model, category, brand
+--from product_6yf py 
+--where category in ('смартфоны', 'ноутбуки')
+--and brand in ('Apple', 'Samsung')
+---2
+--select distinct name
+--from supplier_product_info_uam 
+--join supplier_ldx sl on supplier_id = sl.id 
+--join product_6yf py on product_id = py.id 
+--where brand in ('Apple', 'Samsung')
+---3
+--select distinct name
+--from supplier_product_info_uam 
+--join supplier_ldx sl on supplier_id = sl.id 
+--join product_6yf py on product_id = py.id 
+--where category = 'часы'
+--intersect 
+--select distinct name
+--from supplier_product_info_uam 
+--join supplier_ldx sl on supplier_id = sl.id 
+--join product_6yf py on product_id = py.id 
+--where category not in ('смартфоны')
+
+---5
+--select max(price), min(price), avg(price), sum(price)
+--from product_6yf py 
+--join supplier_product_info_uam on py.id = product_id
+--where category = 'электронные часы'
+--and brand = 'Apple'
