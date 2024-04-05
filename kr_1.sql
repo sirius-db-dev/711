@@ -26,5 +26,5 @@
 --select max(price), min(price), avg(price), sum(price)
 --from product_6yf py 
 --join supplier_product_info_uam on py.id = product_id
---where category = 'электронные часы'
+--where category = 'часы'
 --and brand = 'Apple'
