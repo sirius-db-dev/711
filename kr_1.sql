@@ -28,3 +28,10 @@
 --join supplier_product_info_uam on py.id = product_id
 --where category = 'часы'
 --and brand = 'Apple'
+---6
+--select model
+--from product_6yf py 
+--join supplier_product_info_uam on py.id = product_id
+--where category = 'мониторы'
+--and price = (select max(price) from supplier_product_info_uam
+--join product_6yf py2 on product_id = py2.id where category = 'мониторы')
